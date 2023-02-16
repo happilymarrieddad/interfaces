@@ -8,6 +8,8 @@ import (
 	_ "github.com/golang/mock/mockgen/model"
 )
 
+//go:generate mockgen -destination=./mocks/RoundTripper.go -package=mocks net/http RoundTripper
+
 //go:generate mockgen -destination=./mocks/HTTPClient.go -package=mocks github.com/happilymarrieddad/interfaces/httpclient HTTPClient
 type HTTPClient interface {
 	Get(url string) (resp *http.Response, err error)
